@@ -10,5 +10,8 @@ module.exports = {
       password: process.env.DATABASE_PASSWORD,
       database: 'hyf',
     },
+    seeds: {
+      directory: './seeds',
+    },
   },
 }
