@@ -3,6 +3,13 @@ const db = require('../db')
 
 const router = express.Router()
 
+// A middleware that logs time of request plus query parameters
+router.use((req, _res, next) => {
+  const time = new Date()
+  console.log('request made at:', time.toLocaleString(), 'with params:', req.query)
+  next()
+})
+
 router.get('/accounts', async (req, res) => {
   // SQL: SELECT accounts.*, users.first_name AS owner_first_name, users.last_name AS owner_last_name
   //  FROM ACCOUNTS
